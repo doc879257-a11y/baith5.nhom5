@@ -1,16 +1,16 @@
-public class test {
-    public static void main(String[] args)
-    {
-        sach sach1 = new sach("s001", "lap trinh java", "nguyen van a", 2020, 5);
-        sach sach2 = new sach();
-        sach2.setmasach("s002");
-        sach2.settieude("cau truc du lieu");
-        sach2.settacgia("tran van b");
-        sach2.setnamxuatban(2019);
-        sach2.setsoluong(7);
-        System.out.println("=== thong tin sach 1 ===");
-        sach1.hienthithongtin();
-        System.out.println("=== thong tin sach 2 ===");
-        sach2.hienthithongtin();
+class TestSach {
+    public static void main(String[] args) {
+        Sach[] Mangsach = {
+            new Sach("MS01", "Lap trinh Java", "Nguyen Van An", 2023, 5),
+            new Sach("MS02", "Cau truc du lieu", "Tran Thi Binh", 2022, 8),
+            new Sach("MS03", "Giai thuat", "Le Van Cuong", 2021, 3),
+            new Sach("MS04", "He dieu hanh", "Pham Thi Dung", 2020, 6),
+            new Sach("MS05", "Mang may tinh", "Le Huu Thanh", 2019, 4)
+        };
+
+        for (Sach sach : Mangsach) {
+            sach.hienThiThongTin();
+            System.out.println("------------------------");
+        }
     }
 }
