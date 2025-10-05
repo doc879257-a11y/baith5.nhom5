@@ -1,76 +1,69 @@
-public class sach
-{
+public class Sach {
     private String masach;
     private String tieude;
     private String tacgia;
     private int namxuatban;
     private int soluong;
-    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong)
-    {
+
+    //Constructor//
+    public Sach(String masach, String tieude, String tacgia, int namxuatban, int soluong) {
         this.masach = masach;
         this.tieude = tieude;
         this.tacgia = tacgia;
         this.namxuatban = namxuatban;
         this.soluong = soluong;
     }
-    public sach() {}
-    public String getmasach()
-    {
+    public String getMasach() {
         return masach;
     }
-    public void setmasach(String masach)
-    {
+
+    public void setMasach(String masach) {
         this.masach = masach;
     }
-    public String gettieude()
-    {
+
+    public String getTieude() {
         return tieude;
     }
-    public void settieude(String tieude)
-    {
+
+    public void setTieude(String tieude) {
         this.tieude = tieude;
     }
-    public String gettacgia()
-    {
+
+    public String getTacgia() {
         return tacgia;
     }
-    public void settacgia(String tacgia)
-    {
+
+    public void setTacgia(String tacgia) {
         this.tacgia = tacgia;
     }
-    public int getnamxuatban()
-    {
+
+    public int getNamxuatban() {
         return namxuatban;
     }
-    public void setnamxuatban(int namxuatban)
-    {
-        if (namxuatban > 0)
-        {
-            this.namxuatban = namxuatban;
-        } else
-        {
-            System.out.println("nam xuat ban khong hop le!");
-        }
+
+    public void setNamxuatban(int namxuatban) {
+        this.namxuatban = namxuatban;
     }
-    public int getsoluong()
-    {
+
+    public int getSoluong() {
         return soluong;
     }
-    public void setsoluong(int soluong)
-    {
-        if (soluong >= 0) {
+
+    public void setSoluong(int soluong) {
+        if(soluong >= 0) { // kiểm tra tính hợp lệ
             this.soluong = soluong;
         } else {
-            System.out.println("so luong khong hop le!");
+            System.out.println("Số lượng không hợp lệ!");
         }
     }
-    public void hienthithongtin()
-    {
-        System.out.println("ma sach: " + masach);
-        System.out.println("tieu de: " + tieude);
-        System.out.println("tac gia: " + tacgia);
-        System.out.println("nam xuat ban: " + namxuatban);
-        System.out.println("so luong: " + soluong);
-        System.out.println("--------------------------");
+
+    public void hienThiThongTin() {
+        System.out.println("masach: " + masach);
+        System.out.println("tieude: " + tieude);
+        System.out.println("tacgia: " + tacgia);
+        System.out.println("namxuatban: " + namxuatban);
+        System.out.println("soluong: " + soluong);
     }
 }
+
+
