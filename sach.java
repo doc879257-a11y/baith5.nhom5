@@ -65,4 +65,15 @@ public class sach {
         System.out.println("Nam xuat ban: "+namXuatBan);
         System.out.println("So luong : "+soLuong);
     }
+
+    @Override
+    public String toString() {
+        return "sach{" +
+                "maSach='" + maSach + '\'' +
+                ", tieuDe='" + tieuDe + '\'' +
+                ", tacGia='" + tacGia + '\'' +
+                ", namXuatBan=" + namXuatBan +
+                ", soLuong=" + soLuong +
+                '}';
+    }
 }
