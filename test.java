@@ -41,7 +41,6 @@ public class test {
             System.out.println("Khong tim thay sach!");
         }
 
-
         SachTieuThuyet sach6 = new SachTieuThuyet("TT001", "Sherlock Holmes (Tai ban)",
                 "Arthur Conan Doyle", 2023, 7, "Trinh tham", false);
         ql.capNhatSach("TT001", sach6);
