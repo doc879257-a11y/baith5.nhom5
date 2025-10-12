@@ -4,7 +4,7 @@ public class sach
     private String tieude;
     private String tacgia;
     private int namxuatban;
-    private int soluong;
+    protected int soluong;
     public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong)
     {
         this.masach = masach;
