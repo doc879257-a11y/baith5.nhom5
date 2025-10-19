@@ -1,90 +1,58 @@
-public class sach {
+import java.time.LocalDate;
+
+public abstract class sach {
     private String masach;
     private String tieude;
     private String tacgia;
     private int namxuatban;
     private int soluong;
+    private double giacoban;
 
-    public sach() {
-    }
-
-    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong) {
+    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban) {
         this.masach = masach;
         this.tieude = tieude;
         this.tacgia = tacgia;
         setnamxuatban(namxuatban);
-        setsoluong(soluong);
+        setsoduong(soluong);
+        this.giacoban = giacoban;
     }
 
-    public String getmasach() {
-        return masach;
-    }
-
-    public void setmasach(String masach) {
-        this.masach = masach;
-    }
-
-    public String gettieude() {
-        return tieude;
-    }
-
-    public void settieude(String tieude) {
-        this.tieude = tieude;
-    }
-
-    public String gettacgia() {
-        return tacgia;
-    }
-
-    public void settacgia(String tacgia) {
-        this.tacgia = tacgia;
-    }
-
-    public int getnamxuatban() {
-        return namxuatban;
-    }
+    public String getmasach() { return masach; }
+    public String gettieude() { return tieude; }
+    public String gettacgia() { return tacgia; }
+    public int getnamxuatban() { return namxuatban; }
+    public int getsoluong() { return soluong; }
+    public double getgiacoban() { return giacoban; }
 
     public void setnamxuatban(int namxuatban) {
-        int namhientai = java.time.Year.now().getValue();
-        if (namxuatban > namhientai) {
-            System.out.println("nam xuat ban khong hop le!");
-            this.namxuatban = 0;
-        } else {
+        int namhientai = LocalDate.now().getYear();
+        if (namxuatban >= 0 && namxuatban < namhientai)
             this.namxuatban = namxuatban;
-        }
+        else
+            this.namxuatban = 0;
     }
 
-    public int getsoluong() {
-        return soluong;
+    public void setsoduong(int soluong) {
+        this.soluong = Math.max(soluong, 0);
     }
 
-    public void setsoluong(int soluong) {
-        if (soluong < 0) {
-            System.out.println("so luong khong hop le!");
-            this.soluong = 0;
-        } else {
-            this.soluong = soluong;
-        }
+    public void setgiacoban(double giacoban) {
+        this.giacoban = giacoban;
     }
+
+    public abstract double tinhgiaban();
 
     public void hienthithongtin() {
-        System.out.println("ma sach: " + masach);
-        System.out.println("tieu de: " + tieude);
-        System.out.println("tac gia: " + tacgia);
-        if (namxuatban == 0) {
-            System.out.println("nam xuat ban: chua cap nhat");
-        } else {
-            System.out.println("nam xuat ban: " + namxuatban);
-        }
-        System.out.println("so luong: " + soluong);
+        System.out.println(toString());
     }
 
     @Override
     public String toString() {
-        return "ma sach: " + masach +
-               ", tieu de: " + tieude +
-               ", tac gia: " + tacgia +
-               ", nam xuat ban: " + (namxuatban == 0 ? "chua cap nhat" : namxuatban) +
-               ", so luong: " + soluong;
+        return "Ma sach: " + masach +
+               " | Tieu de: " + tieude +
+               " | Tac gia: " + tacgia +
+               " | Nam XB: " + namxuatban +
+               " | So luong: " + soluong +
+               " | Gia co ban: " + giacoban;
     }
 }
