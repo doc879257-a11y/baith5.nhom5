@@ -1,49 +1,27 @@
-public class sachtieuthuyet extends sach implements ikiemke {
-    private String theloai;
+public class sachtieuthuyet extends sach
+{
+    private  String theloai;
     private boolean lasachseries;
-
-    public sachtieuthuyet(String masach, String tieude, String tacgia, int namxuatban,
-                          int soluong, double giacoban, String theloai, boolean lasachseries) {
-        super(masach, tieude, tacgia, namxuatban, soluong, giacoban);
+    public sachtieuthuyet(String masach, String tieude, String tacgia, int namxuatban,int soluong, String theloai, boolean lasachseries)
+    {
+        super(masach, tieude, tacgia, namxuatban,soluong);
         this.theloai = theloai;
-        this.lasachseries = lasachseries;
+        this.lasachseries= lasachseries;
     }
-    public String getTheloai() {
+    public String gettheloai(){
         return theloai;
     }
-
-    public boolean isLasachseries() {
+    public void settheloai(String theloai) {
+        this.theloai=theloai;
+    }
+    public boolean islaSachSeries() {
         return lasachseries;
     }
-    public void setTheloai(String theloai) {
-        this.theloai = theloai;
-    }
-
-    public void setLasachseries(boolean lasachseries) {
+    public void setsasachseries(boolean lasachseries) {
         this.lasachseries = lasachseries;
     }
-
-    @Override
-    public double tinhgiaban() {
-        return getgiacoban() + (lasachseries ? 15000 : 0);
-    }
-
-    @Override
-    public boolean kiemtratonkho(int soluongtoithieu) {
-        return getsoluong() >= soluongtoithieu;
-    }
-
-    @Override
-    public void capnhatvitri(String vitrimo) {
-        System.out.println("Da chuyen sach " + gettieude() + " den " + vitrimo);
-    }
-
     @Override
     public String toString() {
-        return "[Tieu thuyet] " + super.toString() +
-               " | The loai: " + theloai +
-               " | Series: " + (lasachseries ? "Co" : "Khong") +
-               " | Gia ban: " + tinhgiaban();
+        return super.toString() + ", Thể loại: " + theloai + ", Là sách series: " + (lasachseries ? "Có" : "Không");
     }
-   
 }

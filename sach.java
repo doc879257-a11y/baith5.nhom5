@@ -1,58 +1,79 @@
-import java.time.LocalDate;
+import java.sql.SQLOutput;
 
-public abstract class sach {
-    private String masach;
-    private String tieude;
-    private String tacgia;
-    private int namxuatban;
-    private int soluong;
-    private double giacoban;
+public class sach {
+     private String maSach;
+     private String tieuDe;
+     private String tacGia;
+     private  int  namXuatBan;
+     private int soLuong;
 
-    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban) {
-        this.masach = masach;
-        this.tieude = tieude;
-        this.tacgia = tacgia;
-        setnamxuatban(namxuatban);
-        setsoduong(soluong);
-        this.giacoban = giacoban;
+     public sach() {
+     }
+
+     public sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong ){
+         this.maSach=maSach;
+         this.tieuDe=tieuDe;
+         this.tacGia=tacGia;
+         this.namXuatBan=namXuatBan;
+         this.soLuong=soLuong;
+     }
+
+    public String getMaSach() {
+        return maSach;
     }
 
-    public String getmasach() { return masach; }
-    public String gettieude() { return tieude; }
-    public String gettacgia() { return tacgia; }
-    public int getnamxuatban() { return namxuatban; }
-    public int getsoluong() { return soluong; }
-    public double getgiacoban() { return giacoban; }
-
-    public void setnamxuatban(int namxuatban) {
-        int namhientai = LocalDate.now().getYear();
-        if (namxuatban >= 0 && namxuatban < namhientai)
-            this.namxuatban = namxuatban;
-        else
-            this.namxuatban = 0;
+    public void setMaSach(String maSach) {
+        this.maSach = maSach;
     }
 
-    public void setsoduong(int soluong) {
-        this.soluong = Math.max(soluong, 0);
+    public String getTieuDe() {
+        return tieuDe;
     }
 
-    public void setgiacoban(double giacoban) {
-        this.giacoban = giacoban;
+    public void setTieuDe(String tieuDe) {
+        this.tieuDe = tieuDe;
     }
 
-    public abstract double tinhgiaban();
+    public String getTacGia() {
+        return tacGia;
+    }
 
-    public void hienthithongtin() {
-        System.out.println(toString());
+    public void setTacGia(String tacGia) {
+        this.tacGia = tacGia;
+    }
+
+    public int getNamXuatBan() {
+        return namXuatBan;
+    }
+
+    public void setNamXuatBan(int namXuatBan) {
+        this.namXuatBan = namXuatBan;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+
+    public void hienThiThongTin(){
+        System.out.println("Ma sach: "+maSach);
+        System.out.println("Tieu de: "+tieuDe);
+        System.out.println("Tac gia: "+tacGia);
+        System.out.println("Nam xuat ban: "+namXuatBan);
+        System.out.println("So luong : "+soLuong);
     }
 
     @Override
     public String toString() {
-        return "Ma sach: " + masach +
-               " | Tieu de: " + tieude +
-               " | Tac gia: " + tacgia +
-               " | Nam XB: " + namxuatban +
-               " | So luong: " + soluong +
-               " | Gia co ban: " + giacoban;
+        return "sach{" +
+                "maSach='" + maSach + '\'' +
+                ", tieuDe='" + tieuDe + '\'' +
+                ", tacGia='" + tacGia + '\'' +
+                ", namXuatBan=" + namXuatBan +
+                ", soLuong=" + soLuong +
+                '}';
     }
 }
