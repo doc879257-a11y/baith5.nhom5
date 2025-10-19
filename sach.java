@@ -1,17 +1,19 @@
-public class sach
+public abstract class sach
 {
     private String masach;
     private String tieude;
     private String tacgia;
     private int namxuatban;
     protected int soluong;
-    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong)
+    protected double giacoban;
+    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong,double giacoban)
     {
         this.masach = masach;
         this.tieude = tieude;
         this.tacgia = tacgia;
         this.namxuatban = namxuatban;
         this.soluong = soluong;
+        this.giacoban = giacoban;
     }
     public sach() {}
     public String getmasach()
@@ -64,6 +66,12 @@ public class sach
             System.out.println("so luong khong hop le!");
         }
     }
+
+    public void setgiacoban(double giacoban) {
+        this.giacoban = giacoban;
+    }
+    public double getgiacoban() {return giacoban;};
+
     public void hienthithongtin()
     {
         System.out.println("ma sach: " + masach);
@@ -71,6 +79,15 @@ public class sach
         System.out.println("tac gia: " + tacgia);
         System.out.println("nam xuat ban: " + namxuatban);
         System.out.println("so luong: " + soluong);
+        System.out.println("gia co ban"+giacoban);
         System.out.println("--------------------------");
     }
+    public abstract double tinhgiaban();
+    @Override
+    public String toString() {
+        return "Mã: " + masach + ", Tiêu đề: " + tieude +
+                ", Tác giả: " + tacgia + ", Năm XB: " + namxuatban +
+                ", Số lượng: " + soluong + ", Giá cơ bản: " + giacoban;
+    }
+
 }
