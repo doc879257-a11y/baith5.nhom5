@@ -1,58 +1,54 @@
 public class test {
-    public static void main(String[] args)
-    {
-    // sach sach1 = new //sach("s001", "lap trinh java", "nguyen van a", 2020, 5);
-    // sach sach2 = new sach();
-    //  sach2.setmasach("s002");
-    // sach2.settieude("cau truc du lieu");
-    // sach2.settacgia("tran van b");
-    // sach2.setnamxuatban(2019);
-    // sach2.setsoluong(7);
-    // System.out.println("=== thong tin sach 1 ===");
-    //sach1.hienthithongtin();
-    //System.out.println("=== thong tin sach 2 ===");
-    //sach2.hienthithongtin();
-    //quanlisach ql = new quanlisach();
-    //sachgiaotrinh sg1 = new sachgiaotrinh("gt01", "lap trinh java", "nguyen van a", 85000, 2222, "dai hoc");
-    // sachtieuthuyet st1 = new sachtieuthuyet("tt01", "dac nhan tam", "dale carnegie", 120000, "3333", false);
-    // }
-        quanlisach ql = new quanlisach();
+    public static void main(String[] args) {
 
-        // Tạo các đối tượng sách
-        sachgiaotrinh sg = new sachgiaotrinh("gt01", "lap trinh java", "nguyen van a", 2020, 55, 85000,"cntt","daihoc");
-        sachtieuthuyet st = new sachtieuthuyet("tt01", "dac nhan tam", "dale carnegie", 2015, 22, 120000, "tâm lý học", true);
-
-        // Gọi hàm themSach() để thêm vào danh sách
-        ql.themsach(sg);
-        ql.themsach(st);
-
-        // Hiển thị danh sách
-        System.out.println("=== danh sach sach ===");
-        ql.hienthidanhsach();
-        ikiemke kiemke = sg;
-        System.out.println("\n=== KIỂM TRA TỒN KHO & CẬP NHẬT VỊ TRÍ ===");
-        System.out.println("Đủ hàng? " + (kiemke.kiemtratonkho(40) ? "Có" : "Không"));
-        kiemke.capnhatvitri("Kho A1 - Kệ 5");
-
-        // Tìm kiếm sách theo mã
-        //System.out.println("\n=== tim sach theo ma tt01 ===");
-       // sach timThay = ql.timKiem("tt01");
-        //if (timThay != null) {
-          //  System.out.println(timThay);
-        //} else {
-          //  System.out.println("khong tim thay sach!");
-        //}
-        //sach timSach = ql.timKiem("TT001");
-        //if (timSach != null) {
-          //  System.out.println(timSach);
-        //} else {
-          //  System.out.println("Khong tim thay sach!");
-        //}
+//        sach sach1 = new sach("S001", "Lập trình Java", "Nguyễn Văn A", 2021, 5);
+//        sach sach2 = new sach("S002", "Cấu trúc dữ liệu", "Trần Thị B", 2019, 3);
+//
+//        sach sach3 = new sach();
+//        sach3.setMaSach("S003");
+//        sach3.setTieuDe("Giai thuat");
+//        sach3.setTacGia("Lê Văn C");
+//        sach3.setNamXuatBan(2020);
+//        sach3.setSoLuong(7);
+//
+//        sach1.hienThiThongTin();
+//        sach2.hienThiThongTin();
+//        sach3.hienThiThongTin();
 
 
-        // Xóa sách
-        //System.out.println("\n=== xoa sach tt01 ===");
-        //ql.xoaxach("tt01");
-        //ql.hienThiDanhSach();
+        sach sach4 = new SachGiaoTrinh("GT001", "Lap trinh Java", "Nguyen Van A", 2021, 10,
+                "Cong nghe thong tin", "Dai hoc");
+
+        sach sach5 = new SachTieuThuyet("TT001", "Harry Potter", "J.K. Rowling", 2005, 20,
+                "Phieu luu - Gia tuong", true);
+
+
+        QuanLySach ql = new QuanLySach();
+
+
+        ql.themSach(sach4);
+        ql.themSach(sach5);
+
+
+        ql.hienThiDanhSach();
+
+
+        System.out.println("\n--- TIM SACH THEO MA 'TT001' ---");
+        sach timSach = ql.timSachTheoMa("TT001");
+        if (timSach != null) {
+            System.out.println(timSach);
+        } else {
+            System.out.println("Khong tim thay sach!");
+        }
+
+        SachTieuThuyet sach6 = new SachTieuThuyet("TT001", "Sherlock Holmes (Tai ban)",
+                "Arthur Conan Doyle", 2023, 7, "Trinh tham", false);
+        ql.capNhatSach("TT001", sach6);
+
+
+        ql.xoaSach("GT001");
+
+
+        ql.hienThiDanhSach();
     }
 }
