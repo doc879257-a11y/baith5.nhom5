@@ -7,26 +7,28 @@ public class quanlisach {
     public void themsach(sach s) {
         danhsachsach.add(s);
     }
-    public boolean xoaxach(String masach) {
-        for (sach s : danhsachsach) {
-            if (s.getmasach().equalsIgnoreCase(masach)) {
-                danhsachsach.remove(s);
-                return true;
-            }
-        }
-        return false;
-    }
-    public sach timKiem(String masach) {
-        for (sach s : danhsachsach) {
-            if (s.getmasach().equalsIgnoreCase(masach)) {
-                return s;
-            }
-        }
-        return null;
-    }
-    public void hienThiDanhSach() {
+    //public boolean xoaxach(String masach) {
+       //for (sach s : danhsachsach) {
+           // if (s.getmasach().equalsIgnoreCase(masach)) {
+               // danhsachsach.remove(s);
+               // return true;
+          //  }
+       // }
+      //  return false;
+   // }
+    //public sach timKiem(String masach) {
+        //for (sach s : danhsachsach) {
+          //  if (s.getmasach().equalsIgnoreCase(masach)) {
+                //return s;
+          //  }
+       // }
+       // return null;
+   // }
+    public void hienthidanhsach() {
         for (sach s : danhsachsach) {
             System.out.println(s);
+            System.out.println("→ Giá bán ước tính: " + s.tinhgiaban() + " VNĐ");
+            System.out.println("----------------------------------------");
         }
     }
 }

@@ -76,4 +76,12 @@ public class sach {
                 ", soLuong=" + soLuong +
                 '}';
     }
+    public abstract double tinhgiaban();
+    @Override
+    public String toString() {
+        return "Mã: " + masach + ", Tiêu đề: " + tieude +
+                ", Tác giả: " + tacgia + ", Năm XB: " + namxuatban +
+                ", Số lượng: " + soluong + ", Giá cơ bản: " + giacoban;
+    }
+
 }
