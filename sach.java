@@ -1,21 +1,21 @@
-import java.sql.SQLOutput;
 
-public class sach {
+public abstract class sach {
      private String maSach;
      private String tieuDe;
      private String tacGia;
      private  int  namXuatBan;
      private int soLuong;
+     private double giaCoBan;
 
-     public sach() {
-     }
+     public sach() {}
 
-     public sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong ){
+     public sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong , double giaCoBan){
          this.maSach=maSach;
          this.tieuDe=tieuDe;
          this.tacGia=tacGia;
          this.namXuatBan=namXuatBan;
          this.soLuong=soLuong;
+         this.giaCoBan=giaCoBan;
      }
 
     public String getMaSach() {
@@ -58,6 +58,14 @@ public class sach {
         this.soLuong = soLuong;
     }
 
+    public double getGiaCoBan() {
+        return giaCoBan;
+    }
+
+    public void setGiaCoBan(double giaConBan) {
+        this.giaCoBan = giaConBan;
+    }
+
     public void hienThiThongTin(){
         System.out.println("Ma sach: "+maSach);
         System.out.println("Tieu de: "+tieuDe);
@@ -74,6 +82,9 @@ public class sach {
                 ", tacGia='" + tacGia + '\'' +
                 ", namXuatBan=" + namXuatBan +
                 ", soLuong=" + soLuong +
+                ", giaConBan=" + giaCoBan +
                 '}';
     }
+
+    public abstract double tinhGiaBan();
 }
