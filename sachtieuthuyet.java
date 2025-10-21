@@ -1,27 +1,49 @@
-public class sachtieuthuyet extends sach
-{
-    private  String theloai;
-    private boolean lasachseries;
-    public sachtieuthuyet(String masach, String tieude, String tacgia, int namxuatban,int soluong, String theloai, boolean lasachseries)
-    {
-        super(masach, tieude, tacgia, namxuatban,soluong);
+class sachtieuthuyet extends sach implements ikiemke {
+    private String theloai;
+    private Boolean laSachSeries;
+    private double giaban;
+
+    public sachtieuthuyet(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giaCoBan, String theloai, Boolean laSachSeries) {
+        super(masach, tieude, tacgia, namxuatban, soluong, giaCoBan);
         this.theloai = theloai;
-        this.lasachseries= lasachseries;
+        this.laSachSeries = laSachSeries;
+        this.giaban = tinhGiaBan();
     }
-    public String gettheloai(){
-        return theloai;
+
+    @Override
+    public void hienThiThongTin() {
+        System.out.println("==================================");
+        System.out.println(" THONG TIN SACH TIEU THUYET ");
+        System.out.println("==================================");
+        super.hienThiThongTin();
+        System.out.println("The loai: " + theloai);
+        System.out.println("La sach series: " + laSachSeries);
+        System.out.println("Gia ban: " + tinhGiaBan() + " VND");
     }
-    public void settheloai(String theloai) {
-        this.theloai=theloai;
+
+    public double getGiaBan() { return giaban; }
+    @Override
+    public double tinhGiaBan() {
+        if (laSachSeries) return getgiaCoBan() + 15000;
+        else return getgiaCoBan();
     }
-    public boolean islaSachSeries() {
-        return lasachseries;
+
+    @Override
+    public boolean kiemtratonkho(int soluongtoithieu) {
+        return getSoluong() >= soluongtoithieu;
     }
-    public void setsasachseries(boolean lasachseries) {
-        this.lasachseries = lasachseries;
+
+    @Override
+    public void capnhatvitri(String vitrimoi) {
+        System.out.println("Da chuyen sach \"" + getTieude() + "\" den khu vuc " + vitrimoi);
     }
+
     @Override
     public String toString() {
-        return super.toString() + ", Thể loại: " + theloai + ", Là sách series: " + (lasachseries ? "Có" : "Không");
+        return "Sach tieu thuyet:\n" +
+               super.toString() +
+               "\nThe loai: " + theloai +
+               "\nLa sach series: " + laSachSeries +
+               "\nGia ban: " + tinhGiaBan() + " VND";
     }
 }
