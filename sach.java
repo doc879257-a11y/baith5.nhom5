@@ -1,79 +1,77 @@
-import java.sql.SQLOutput;
+package sach;
 
-public class sach {
-     private String maSach;
-     private String tieuDe;
-     private String tacGia;
-     private  int  namXuatBan;
-     private int soLuong;
+public abstract class sach implements igiaban, ikiemke {
+    private String masach;
+    private String tieude;
+    private String tacgia;
+    private int namxuatban;
+    private int soluong;
+    private double giaCoBan;
 
-     public sach() {
-     }
-
-     public sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong ){
-         this.maSach=maSach;
-         this.tieuDe=tieuDe;
-         this.tacGia=tacGia;
-         this.namXuatBan=namXuatBan;
-         this.soLuong=soLuong;
-     }
-
-    public String getMaSach() {
-        return maSach;
+    public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giaCoBan) {
+        this.masach = masach;
+        this.tieude = tieude;
+        this.tacgia = tacgia;
+        this.namxuatban = namxuatban;
+        this.soluong = soluong;
+        this.giaCoBan = giaCoBan;
     }
 
-    public void setMaSach(String maSach) {
-        this.maSach = maSach;
+    public String getMasach() {
+         return masach; 
+        }
+    public void setMasach(String masach) { 
+        this.masach = masach; 
     }
-
-    public String getTieuDe() {
-        return tieuDe;
+    public String getTieude() { 
+        return tieude; 
     }
-
-    public void setTieuDe(String tieuDe) {
-        this.tieuDe = tieuDe;
+    public void setTieude(String tieude) {
+        this.tieude = tieude; 
     }
-
-    public String getTacGia() {
-        return tacGia;
+    public String getTacgia() { 
+        return tacgia; 
     }
-
-    public void setTacGia(String tacGia) {
-        this.tacGia = tacGia;
+    public void setTacgia(String tacgia) { 
+        this.tacgia = tacgia; 
     }
-
-    public int getNamXuatBan() {
-        return namXuatBan;
+    public int getNamxuatban() { 
+        return namxuatban; 
     }
-
-    public void setNamXuatBan(int namXuatBan) {
-        this.namXuatBan = namXuatBan;
+    public void setNamxuatban(int namxuatban) { 
+        this.namxuatban = namxuatban; 
     }
-
-    public int getSoLuong() {
-        return soLuong;
+    public int getSoluong() { 
+        return soluong; 
     }
-
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+    public void setSoluong(int soluong) 
+    {
+        if (soluong >= 0) this.soluong = soluong;
+            else System.out.println("So luong khong hop le!");
     }
-
-    public void hienThiThongTin(){
-        System.out.println("Ma sach: "+maSach);
-        System.out.println("Tieu de: "+tieuDe);
-        System.out.println("Tac gia: "+tacGia);
-        System.out.println("Nam xuat ban: "+namXuatBan);
-        System.out.println("So luong : "+soLuong);
+    public double getgiaCoBan() { 
+        return giaCoBan; 
+    }
+    public void setgiaCoBan(double giaCoBan) { 
+        this.giaCoBan = giaCoBan; 
+    }
+    @Override
+    public abstract double tinhGiaBan();
+    public void hienThiThongTin() {
+        System.out.println("Ma sach: " + masach);
+        System.out.println("Tieu de: " + tieude);
+        System.out.println("Tac gia: " + tacgia);
+        System.out.println("Nam xuat ban: " + namxuatban);
+        System.out.println("So luong: " + soluong);
     }
 
     @Override
     public String toString() {
-        return "sach{" +
-                "maSach='" + maSach + '\'' +
-                ", tieuDe='" + tieuDe + '\'' +
-                ", tacGia='" + tacGia + '\'' +
-                ", namXuatBan=" + namXuatBan +
-                ", soLuong=" + soLuong +
-                '}';
+        return "Ma sach: " + masach +
+               "\nTieu de: " + tieude +
+               "\nTac gia: " + tacgia +
+               "\nNam xuat ban: " + namxuatban +
+               "\nSo luong: " + soluong;
     }
 }
+

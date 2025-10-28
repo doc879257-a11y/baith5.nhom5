@@ -2,10 +2,11 @@ package sach;
 
 import java.util.Scanner;
 import java.util.*;
-public class quanlysach {
+public class quanlysachImpl extends quanlysach implements iquanlysach {
     private ArrayList<sach> ds = new ArrayList<>();
     private Scanner input = new Scanner(System.in);
 
+    @Override
     public void themSach() {
         System.out.println("=== THEM SACH MOI ===");
         System.out.print("Loai sach (1. Giao trinh / 2. Tieu thuyet): ");
@@ -41,7 +42,8 @@ public class quanlysach {
         System.out.println("==> Da them sach thanh cong!\n");
     }
 
-    public void xoaSach() {
+    @Override
+    public void Xoasach() {
         System.out.print("Nhap ma sach can xoa: ");
         String masach = input.nextLine();
         sach sachCanXoa = null;
@@ -61,6 +63,7 @@ public class quanlysach {
         }
     }
 
+    @Override
     public void capnhatSach() {
         System.out.print("Nhap ma sach can cap nhat: ");
         String masach = input.nextLine();
@@ -77,7 +80,8 @@ public class quanlysach {
         System.out.println("==> Khong tim thay ma sach!");
     }
 
-    public void timkiem() {
+    @Override
+    public void timkiem() { 
         System.out.print("Nhap ma sach can tim: ");
         String masach = input.nextLine();
         for (sach s : ds) {
@@ -91,6 +95,7 @@ public class quanlysach {
         System.out.println("==> Khong tim thay ma sach!");
     }
 
+    @Override
     public void hienThiDanhSach() {
         if (ds.isEmpty()) {
             System.out.println("Danh sach trong!");
@@ -107,53 +112,50 @@ public class quanlysach {
     public void themSachThuCong(sach s) {
         ds.add(s);
     }
-}
-
-class testquanlysach {
-    public static void main(String[] args) {
-        quanlysach ql = new quanlysach();
-        sachgiaotrinh gt = new sachgiaotrinh("GT01", "Lap trinh Java", "Nguyen Van A", 2024, 50, 120000, "CNTT", "Dai hoc");
-        sachtieuthuyet tt = new sachtieuthuyet("TT01", "Harry Potter", "J.K. Rowling", 2010, 30, 200000, "Fantasy", true);
-
-        ql.themSachThuCong(gt);
-        ql.themSachThuCong(tt);
-
-        System.out.println("\n=== DANH SACH SACH CO SAN ===");
-        ql.hienThiDanhSach();
-
-        ikiemke kiemke = gt;
-        System.out.println("Ton kho >= 100: " + kiemke.kiemtratonkho(100));
-        kiemke.capnhatvitri("Kho A1-Ke 5");
-
-        // === MENU BÌNH THƯỜNG ===
-        Scanner input = new Scanner(System.in);
-        int chon;
-        do {
-            System.out.println("\n===== MENU =====");
-            System.out.println("1. Them sach");
-            System.out.println("2. Xoa sach");
-            System.out.println("3. Cap nhat sach");
-            System.out.println("4. Tim kiem sach");
-            System.out.println("5. Hien thi danh sach");
-            System.out.println("0. Thoat");
-            System.out.print("Chon: ");
-            try {
-                chon = Integer.parseInt(input.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Gia tri khong hop le! Vui long nhap so.");
-                chon = -1;
+    @Override
+    public void themSach(sach s) {
+        ds.add(s);
+        System.out.println("==> Da them sach vao danh sach!");
+    }
+    
+    @Override
+    public void timkiem(String masach) {
+        for (sach s : ds) {
+            if (s.getMasach().equals(masach)) {
+                System.out.println("==> Thong tin sach tim thay:");
+                s.hienThiThongTin();
+                return;
             }
-            switch (chon) {
-                case 1 -> ql.themSach();
-                case 2 -> ql.xoaSach();
-                case 3 -> ql.capnhatSach();
-                case 4 -> ql.timkiem();
-                case 5 -> ql.hienThiDanhSach();
-                case 0 -> System.out.println("Thoat chuong trinh!");
-                default -> System.out.println("Lua chon khong hop le!");
+        }
+        System.out.println("==> Khong tim thay sach co ma: " + masach);
+    }
+    
+    @Override
+    public void Xoasach(String masach) {
+        Iterator<sach> it = ds.iterator();
+        while (it.hasNext()) {
+            sach s = it.next();
+            if (s.getMasach().equals(masach)) {
+                it.remove();
+                System.out.println("==> Da xoa sach co ma: " + masach);
+                return;
             }
-        } while (chon != 0);
-        input.close();
+        }
+        System.out.println("==> Khong tim thay sach can xoa!");
+    }
+    @Override
+    public void capnhatSach(sach s) {
+        for (sach item : ds) {
+            if (item.getMasach().equalsIgnoreCase(s.getMasach())) {
+                item.setTieude(s.getTieude());
+                item.setTacgia(s.getTacgia());
+                item.setNamxuatban(s.getNamxuatban());
+                item.setSoluong(s.getSoluong());
+                item.setgiaCoBan(s.getgiaCoBan());
+                System.out.println("Cap nhat thanh cong!");
+                return;
+            }
+        }
+        System.out.println("Khong tim thay ma sach!");
     }
 }
-
