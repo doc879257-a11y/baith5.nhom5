@@ -1,54 +1,95 @@
+import java.util.Scanner;
+
 public class test {
     public static void main(String[] args) {
+        iquanlisach quanLy = new quanlisachimpl(); // Làm việc qua interface
+        Scanner sc = new Scanner(System.in);
+        int chon;
 
-//        sach sach1 = new sach("S001", "Lập trình Java", "Nguyễn Văn A", 2021, 5);
-//        sach sach2 = new sach("S002", "Cấu trúc dữ liệu", "Trần Thị B", 2019, 3);
-//
-//        sach sach3 = new sach();
-//        sach3.setMaSach("S003");
-//        sach3.setTieuDe("Giai thuat");
-//        sach3.setTacGia("Lê Văn C");
-//        sach3.setNamXuatBan(2020);
-//        sach3.setSoLuong(7);
-//
-//        sach1.hienThiThongTin();
-//        sach2.hienThiThongTin();
-//        sach3.hienThiThongTin();
+        do {
+            System.out.println("\n===== MENU QUẢN LÝ SÁCH =====");
+            System.out.println("1. Thêm Sách Tiểu Thuyết");
+            System.out.println("2. Thêm Sách Giáo Trình");
+            System.out.println("3. Hiển thị danh sách sách");
+            System.out.println("4. Tìm kiếm sách theo mã");
+            System.out.println("5. Xóa sách theo mã");
+            System.out.println("0. Thoát");
+            System.out.print("Chọn: ");
+            chon = sc.nextInt();
+            sc.nextLine(); // bỏ ký tự xuống dòng
 
+            switch (chon) {
+                case 1 -> {
+                    System.out.print("Nhập mã sách: ");
+                    String ma = sc.nextLine();
+                    System.out.print("Tiêu đề: ");
+                    String td = sc.nextLine();
+                    System.out.print("Tác giả: ");
+                    String tg = sc.nextLine();
+                    System.out.print("Năm xuất bản: ");
+                    int nam = sc.nextInt();
+                    System.out.print("Số lượng: ");
+                    int sl = sc.nextInt();
+                    System.out.print("Giá cơ bản: ");
+                    double gb = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.print("Thể loại: ");
+                    String tl = sc.nextLine();
+                    System.out.print("Là sách series? (true/false): ");
+                    boolean series = sc.nextBoolean();
 
-        sach sach4 = new SachGiaoTrinh("GT001", "Lap trinh Java", "Nguyen Van A", 2021, 10,
-                "Cong nghe thong tin", "Dai hoc");
+                    sach stt = new sachtieuthuyet(ma, td, tg, nam, sl, gb, tl, series);
+                    quanLy.themsach(stt);
+                    System.out.println(" Đã thêm sách tiểu thuyết!");
+                }
 
-        sach sach5 = new SachTieuThuyet("TT001", "Harry Potter", "J.K. Rowling", 2005, 20,
-                "Phieu luu - Gia tuong", true);
+                case 2 -> {
+                    System.out.print("Nhập mã sách: ");
+                    String ma = sc.nextLine();
+                    System.out.print("Tiêu đề: ");
+                    String td = sc.nextLine();
+                    System.out.print("Tác giả: ");
+                    String tg = sc.nextLine();
+                    System.out.print("Năm xuất bản: ");
+                    int nam = sc.nextInt();
+                    System.out.print("Số lượng: ");
+                    int sl = sc.nextInt();
+                    System.out.print("Giá cơ bản: ");
+                    double gb = sc.nextDouble();
+                    sc.nextLine();
+                    System.out.print("Môn học: ");
+                    String mh = sc.nextLine();
+                    System.out.print("Cấp độ (ĐH, THPT, ...): ");
+                    String cd = sc.nextLine();
 
+                    sach sgt = new sachgiaotrinh(ma, td, tg, nam, sl, gb, mh, cd);
+                    quanLy.themsach(sgt);
+                    System.out.println(" Đã thêm sách giáo trình!");
+                }
 
-        QuanLySach ql = new QuanLySach();
+                case 3 -> {
+                    System.out.println("\n📚 DANH SÁCH SÁCH HIỆN CÓ:");
+                    quanLy.hienthidanhsach();
+                }
 
+                case 4 -> {
+                    System.out.print("Nhập mã sách cần tìm: ");
+                    String matim = sc.nextLine();
+                    sach kq = quanLy.timkiemsach(matim);
+                    System.out.println(kq != null ? kq : "⚠Không tìm thấy sách!");
+                }
 
-        ql.themSach(sach4);
-        ql.themSach(sach5);
+                case 5 -> {
+                    System.out.print("Nhập mã sách cần xóa: ");
+                    String maxoa = sc.nextLine();
+                    System.out.println(quanLy.xoasach(maxoa) ? "🗑️ Đã xóa sách!" : "⚠ Không tồn tại mã sách!");
+                }
 
+                case 0 -> System.out.println(" Kết thúc chương trình!");
+                default -> System.out.println(" Lựa chọn không hợp lệ!");
+            }
 
-        ql.hienThiDanhSach();
-
-
-        System.out.println("\n--- TIM SACH THEO MA 'TT001' ---");
-        sach timSach = ql.timSachTheoMa("TT001");
-        if (timSach != null) {
-            System.out.println(timSach);
-        } else {
-            System.out.println("Khong tim thay sach!");
-        }
-
-        SachTieuThuyet sach6 = new SachTieuThuyet("TT001", "Sherlock Holmes (Tai ban)",
-                "Arthur Conan Doyle", 2023, 7, "Trinh tham", false);
-        ql.capNhatSach("TT001", sach6);
-
-
-        ql.xoaSach("GT001");
-
-
-        ql.hienThiDanhSach();
+        } while (chon != 0);
+        sc.close();
     }
 }
