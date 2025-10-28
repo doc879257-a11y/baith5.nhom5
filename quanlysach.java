@@ -49,7 +49,7 @@ class quanlysach implements iquanlysach {
 
     public static void menu() {
         Scanner sc = new Scanner(System.in);
-        iquanlysach ql = new quanlysach();
+        quanlysach ql = new quanlysach();
         sach gt = new sachgiaotrinh("gt001","ctdl", "nguyen van a", 2022, 120, 90000, "a1-k1", "ctdl", "daihoc");
         sach tt = new sachtieuthuyet("tt001","doraemon", "fujiko", 2010, 50, 60000, "b2-k3", "thieunhi", true);
         ql.themsach(gt);

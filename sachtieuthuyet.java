@@ -18,6 +18,6 @@ class sachtieuthuyet extends sach {
     }
 
     public String toString() {
-        return "tieuthuyet{" + super.toString() + ", TheLoai=" + theloai + ", LaSeries=" + lasachseries + ", GiaBan=" + tinhgiaban() + "}";
+        return "tieuthuyet" + super.toString() + ", TheLoai=" + theloai + ", LaSeries=" + lasachseries + ", GiaBan=" + tinhgiaban() ;
     }
 }
