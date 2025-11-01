@@ -2,13 +2,24 @@ package quanlibansach;
 public class sachgiaotrinh extends sach {
     private String monhoc;
     private String capdo;
-
+    public sachgiaotrinh(){}
     public sachgiaotrinh(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban, String monhoc, String capdo) {
         super(masach, tieude, tacgia, namxuatban, soluong, giacoban);
         this.monhoc = monhoc;
         this.capdo = capdo;
     }
-
+    public String getMonhoc() {
+        return monhoc;
+    }
+    public void setMonhoc(String monhoc) {
+        this.monhoc = monhoc;
+    }
+    public String getCapdo() {
+        return capdo;
+    }
+    public void setCapdo(String capdo) {
+        this.capdo = capdo;
+    }
     @Override
     public double tinhgiaban() {
         int sonam = 2025 - getnamxuatban();
