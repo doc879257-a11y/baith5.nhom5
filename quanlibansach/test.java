@@ -54,7 +54,6 @@ public class test {
                     String ma = sc.nextLine();
                     System.out.println(quanly.xoasach(ma) ? "Da xoa!" : "Khong tim thay!");
                 }
-                case 6 -> System.out.println("Tong gia ban: " + quanly.tonggiabantatca() + " VND");
                 case 0 -> System.out.println("Thoat chuong trinh!");
                 default -> System.out.println("Chon sai!");
             }

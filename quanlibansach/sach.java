@@ -1,12 +1,12 @@
 package quanlibansach;
 
 public abstract class sach implements igiaban, ikiemke {
-    private String masach;
-    private String tieude;
-    private String tacgia;
-    private int namxuatban;
-    private int soluong;
-    private double giacoban;
+    protected  String masach;
+    protected String tieude;
+    protected String tacgia;
+    protected int namxuatban;
+    protected int soluong;
+    protected double giacoban;
 
     public sach() {}
     public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban) {
@@ -106,7 +106,7 @@ public abstract class sach implements igiaban, ikiemke {
 
     @Override
     public void capnhatvitri(String vitrimo) {
-        System.out.println("Da chuyen sach " + tieude + " den khu vuc: " + vitrimo);
+        System.out.println("Da chuyen sach " + tieude + " den khu vuc: " + vitrimoi);
     }
 
     public void hienthithongtin() {

@@ -36,26 +36,4 @@ public class quanlisachimpl implements iquanlisach {
             }
         }
     }
-
-    @Override
-    public boolean capnhatsoluong(String ma, int slmoi) {
-        sach s = timsachtheoma(ma);
-        if (s != null) {
-            s.setsoluong(slmoi);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public double tonggiabantatca() {
-        double sum = 0;
-        for (sach s : dssach) sum += s.tinhgiaban();
-        return sum;
-    }
-
-    @Override
-    public List<sach> getdanhsach() {
-        return dssach;
-    }
 }
