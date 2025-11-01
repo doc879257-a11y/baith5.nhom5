@@ -7,7 +7,6 @@ public abstract class sach implements igiaban, ikiemke {
     protected int namxuatban;
     protected int soluong;
     protected double giacoban;
-
     public sach() {}
     public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban) {
         this.masach = masach;
@@ -96,7 +95,7 @@ public abstract class sach implements igiaban, ikiemke {
     {
         this.giacoban = giacoban;
     }
-
+    //Phuong thuc truu tuong
     public abstract double tinhgiaban();
 
     @Override

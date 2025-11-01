@@ -2,7 +2,7 @@ package quanlibansach;
 import java.util.Scanner;
 public class test {
     public static void main(String[] args) {
-        iquanlisach quanly = new quanlisachimpl();
+        iquanlisach quanly = new quanlisachimpl();// Tao doi tuong
         Scanner sc = new Scanner(System.in);
         int chon;
 
