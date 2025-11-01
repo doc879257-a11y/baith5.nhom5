@@ -1,0 +1,33 @@
+package quanlibansach;
+public class sachgiaotrinh extends sach {
+    private String monhoc;
+    private String capdo;
+
+    public sachgiaotrinh(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban, String monhoc, String capdo) {
+        super(masach, tieude, tacgia, namxuatban, soluong, giacoban);
+        this.monhoc = monhoc;
+        this.capdo = capdo;
+    }
+
+    @Override
+    public double tinhgiaban() {
+        int sonam = 2025 - getnamxuatban();
+        return getgiacoban() + sonam * 5000;
+    }
+
+    @Override
+    public boolean kiemtratonkho(int soluongtoithieu) {
+        return getsoluong() >= soluongtoithieu;
+    }
+
+    @Override
+    public void capnhatvitri(String vitrimoi) {
+        System.out.println("Da chuyen sach \"" + gettieude() + "\" den khu vuc: " + vitrimoi);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Mon hoc: " + monhoc + ", Cap do: " + capdo +
+               ", Gia ban: " + tinhgiaban() + " VND";
+    }
+}
