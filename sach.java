@@ -1,27 +1,25 @@
+public abstract class sach implements igiaban, ikiemke {
+    private String maSach;
+    private String tieuDe;
+    private String tacGia;
+    private int namXuatBan;
+    private int soLuong;
+    protected double giaCoBan;
+    private String viTri;
 
-public abstract class sach {
-     private String maSach;
-     private String tieuDe;
-     private String tacGia;
-     private  int  namXuatBan;
-     private int soLuong;
-     private double giaCoBan;
-
-     public sach() {}
-
-     public sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong , double giaCoBan){
-         this.maSach=maSach;
-         this.tieuDe=tieuDe;
-         this.tacGia=tacGia;
-         this.namXuatBan=namXuatBan;
-         this.soLuong=soLuong;
-         this.giaCoBan=giaCoBan;
-     }
+    public sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan) {
+        this.maSach = maSach;
+        this.tieuDe = tieuDe;
+        this.tacGia = tacGia;
+        this.namXuatBan = namXuatBan;
+        this.soLuong = soLuong;
+        this.giaCoBan = giaCoBan;
+        this.viTri = "Kệ A";
+    }
 
     public String getMaSach() {
         return maSach;
     }
-
     public void setMaSach(String maSach) {
         this.maSach = maSach;
     }
@@ -29,7 +27,6 @@ public abstract class sach {
     public String getTieuDe() {
         return tieuDe;
     }
-
     public void setTieuDe(String tieuDe) {
         this.tieuDe = tieuDe;
     }
@@ -37,7 +34,6 @@ public abstract class sach {
     public String getTacGia() {
         return tacGia;
     }
-
     public void setTacGia(String tacGia) {
         this.tacGia = tacGia;
     }
@@ -45,7 +41,6 @@ public abstract class sach {
     public int getNamXuatBan() {
         return namXuatBan;
     }
-
     public void setNamXuatBan(int namXuatBan) {
         this.namXuatBan = namXuatBan;
     }
@@ -53,7 +48,6 @@ public abstract class sach {
     public int getSoLuong() {
         return soLuong;
     }
-
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
@@ -61,18 +55,29 @@ public abstract class sach {
     public double getGiaCoBan() {
         return giaCoBan;
     }
-
-    public void setGiaCoBan(double giaConBan) {
-        this.giaCoBan = giaConBan;
+    public void setGiaCoBan(double giaCoBan) {
+        this.giaCoBan = giaCoBan;
     }
 
-    public void hienThiThongTin(){
-        System.out.println("Ma sach: "+maSach);
-        System.out.println("Tieu de: "+tieuDe);
-        System.out.println("Tac gia: "+tacGia);
-        System.out.println("Nam xuat ban: "+namXuatBan);
-        System.out.println("So luong : "+soLuong);
+    public String getViTri() {
+        return viTri;
     }
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
+    }
+
+    @Override
+    public boolean kiemTraTonKho(int soLuongToiThieu) {
+        return soLuong >= soLuongToiThieu;
+    }
+
+    @Override
+    public void capNhatViTri(String viTriMoi) {
+        this.viTri = viTriMoi;
+        System.out.println("Đã chuyển sách [" + tieuDe + "] đến khu vực: " + viTriMoi);
+    }
+
+    public abstract double tinhGiaBan();
 
     @Override
     public String toString() {
@@ -82,9 +87,9 @@ public abstract class sach {
                 ", tacGia='" + tacGia + '\'' +
                 ", namXuatBan=" + namXuatBan +
                 ", soLuong=" + soLuong +
-                ", giaConBan=" + giaCoBan +
+                ", giaCoBan=" + giaCoBan +
+                ", giaBan=" + tinhGiaBan() +
+                ", viTri='" + viTri + '\'' +
                 '}';
     }
-
-    public abstract double tinhGiaBan();
 }
