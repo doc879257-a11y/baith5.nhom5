@@ -20,6 +20,6 @@ class sachgiaotrinh extends sach {
     }
 
     public String toString() {
-        return "giaotrinh" + super.toString() + ", MonHoc=" + monhoc + ", CapDo=" + capdo + ", GiaBan=" + tinhgiaban() ;
+        return "Sachgiaotrinh:  " + super.toString() + ", MonHoc=" + monhoc + ", CapDo=" + capdo + ", GiaBan=" + tinhgiaban() ;
     }
 }

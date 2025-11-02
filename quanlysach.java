@@ -10,14 +10,9 @@ class quanlysach implements iquanlysach {
     }
 
     public boolean xoasach(String ma) {
-        // Tim sach de lay masach truoc khi xoa
         sach s = timsachtheoma(ma);
         if (s == null) return false;
-
-        // Xoa sach khoi danh sach
         boolean removed = dssach.remove(s);
-
-        // Neu xoa thanh cong, xoa luon vi tri trong kho sach
         if (removed) {
             khosach.getInstance().xoaViTri(ma);
         }
@@ -37,10 +32,9 @@ class quanlysach implements iquanlysach {
         }
         for (sach s : dssach) {
             s.hienthi();
-            System.out.println("Gia Ban: " + s.tinhgiaban());
+
         }
     }
-
     public boolean capnhatsoluong(String ma, int slmoi) {
         sach s = timsachtheoma(ma);
         if (s == null) return false;
@@ -53,6 +47,7 @@ class quanlysach implements iquanlysach {
         for (sach s : dssach) t += s.tinhgiaban();
         return t;
     }
+
 
     public List<sach> getds() {
         return dssach;
@@ -128,7 +123,9 @@ class quanlysach implements iquanlysach {
                     System.out.print("Nhap ma: "); String ma = sc.nextLine();
                     sach s = ql.timsachtheoma(ma);
                     if (s == null) System.out.println("Khong tim thay");
-                    else s.hienthi();
+                    else {
+                        System.out.println("Tim thay sach:");
+                        s.hienthi();}
                     break;
                 }
                 case 5: {
@@ -156,7 +153,7 @@ class quanlysach implements iquanlysach {
                             System.out.println(du ? "Du hang ton kho" : "Thieu hang ton kho");
                             System.out.print("Nhap vi tri moi: ");
                             String vt = sc.nextLine();
-                            s.capnhatvitri(vt); // Cap nhat vao khosach
+                            s.capnhatvitri(vt);
                         } else System.out.println("Khong tim thay sach");
                     } catch (Exception e) { System.out.println("Loi du lieu dau vao."); }
                     break;
