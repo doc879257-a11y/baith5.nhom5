@@ -4,4 +4,5 @@ public interface iquanlisach {
     sach timsachtheoma(String ma);
     boolean xoasach(String ma);
     void hienthidanhsach();
+    double tonggiabantatca()
 }

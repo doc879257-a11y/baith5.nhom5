@@ -2,10 +2,24 @@ package quanlibansach;
 import java.util.Scanner;
 public class test {
     public static void main(String[] args) {
-        iquanlisach quanly = new quanlisachimpl();// Tao doi tuong
+        iquanlisach quanly = new quanlisachimpl();
         Scanner sc = new Scanner(System.in);
-        int chon;
+        sach s1 = new sachgiaotrinh("GT01", "Lap trinh C co ban", "Nguyen Van A", 2020, 10, 85000, "Tin hoc", "Dai hoc");
+        sach s2 = new sachtieuthuyet("TT02", "Dac Nhan Tam", "Dale Carnegie", 2019, 20, 99000, "Ky nang song", false);
+        sach s3 = new sachgiaotrinh("GT03", "Cau truc du lieu", "Tran Thi B", 2021, 5, 125000, "Tin hoc", "Dai hoc");
+        sach s4 = new sachtieuthuyet("TT04", "Harry Potter", "J.K. Rowling", 2007, 30, 150000, "Gia tuong", true);
+        sach s5 = new sachgiaotrinh("GT05", "Toan cao cap", "Pham Van C", 2018, 15, 110000, "Toan hoc", "Cao dang");
+        sach s6 = new sachtieuthuyet("TT06", "Sherlock Holmes", "Arthur Conan Doyle", 2015, 25, 135000, "Trinh tham", true);
 
+        quanly.themsach(s1);
+        quanly.themsach(s2);
+        quanly.themsach(s3);
+        quanly.themsach(s4);
+        quanly.themsach(s5);
+        quanly.themsach(s6);
+        
+
+        int chon;
         do {
             System.out.println("\n===== MENU QUAN LY SACH =====");
             System.out.println("1. Them Sach Giao Trinh");
@@ -53,6 +67,12 @@ public class test {
                     System.out.print("Nhap ma can xoa: ");
                     String ma = sc.nextLine();
                     System.out.println(quanly.xoasach(ma) ? "Da xoa!" : "Khong tim thay!");
+                }
+                case 6 -> 
+                {
+                    double tong = quanly.tonggiabantatca();
+                    java.text.DecimalFormat df = new java.text.DecimalFormat("#,### VND");
+                    System.out.println("Tong gia ban tat ca sach: " + df.format(tong));
                 }
                 case 0 -> System.out.println("Thoat chuong trinh!");
                 default -> System.out.println("Chon sai!");

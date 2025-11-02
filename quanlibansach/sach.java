@@ -1,5 +1,5 @@
 package quanlibansach;
-
+import java.text.DecimalFormat;
 public abstract class sach implements igiaban, ikiemke {
     protected  String masach;
     protected String tieude;
@@ -96,7 +96,14 @@ public abstract class sach implements igiaban, ikiemke {
         this.giacoban = giacoban;
     }
     //Phuong thuc truu tuong
+
     public abstract double tinhgiaban();
+
+    public String dinhdangVN(double so) {
+        DecimalFormat df = new DecimalFormat("#,### VND");
+        return df.format(so);
+    }
+     
 
     @Override
     public boolean kiemtratonkho(int sltoithieu) {
@@ -115,6 +122,6 @@ public abstract class sach implements igiaban, ikiemke {
     @Override
     public String toString() {
         return "Ma: " + masach + ", Tieu de: " + tieude + ", Tac gia: " + tacgia +
-               ", Nam XB: " + namxuatban + ", SL: " + soluong + ", Gia co ban: " + giacoban;
+               ", Nam XB: " + namxuatban + ", SL: " + soluong + ", Gia co ban: " + dinhdangVN(giacoban);
     }
 }

@@ -1,8 +1,10 @@
 package quanlibansach;
 import java.util.ArrayList;
 import java.util.List;
+
 public class quanlisachimpl implements iquanlisach {
     private final List<sach> dssach = new ArrayList<>();
+
     @Override
     public void themsach(sach s) {
         dssach.add(s);
@@ -33,5 +35,14 @@ public class quanlisachimpl implements iquanlisach {
                 s.hienthithongtin();
             }
         }
+    }
+
+    @Override
+    public double tonggiabantatca() {
+        double tong = 0;
+        for (sach s : dssach) {
+            tong += s.tinhgiaban();
+        }
+        return tong;
     }
 }

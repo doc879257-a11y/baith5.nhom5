@@ -34,11 +34,13 @@ public class sachtieuthuyet extends sach {
     public void capnhatvitri(String vitrimoi) {
         System.out.println("Da chuyen sach \"" + gettieude() + "\" den khu vuc: " + vitrimoi);
     }
-
+    
     @Override
-    public String toString() {
-        return super.toString() + ", The loai: " + theloai +
-               ", Series: " + lasachseries +
-               ", Gia ban: " + tinhgiaban() + " VND";
-    }
+public String toString() {
+    return super.toString() 
+         + ", The loai: " + theloai
+         + ", Series: " + (lasachseries ? "Thuoc series" : "Khong thuoc series")
+         + ", Gia ban: " + dinhdangVN(tinhgiaban());
+}
+
 }

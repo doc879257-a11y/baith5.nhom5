@@ -21,10 +21,13 @@ public class sachgiaotrinh extends sach {
         this.capdo = capdo;
     }
     @Override
-    public double tinhgiaban() {
-        int sonam = 2025 - getnamxuatban();
-        return getgiacoban() + sonam * 5000;
+    public double tinhgiaban() 
+    {
+    int namhientai = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
+    int sonam = namhientai - getnamxuatban();
+    return getgiacoban() + sonam * 5000;
     }
+
 
     @Override
     public boolean kiemtratonkho(int soluongtoithieu) {
@@ -37,8 +40,10 @@ public class sachgiaotrinh extends sach {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + ", Mon hoc: " + monhoc + ", Cap do: " + capdo +
-               ", Gia ban: " + tinhgiaban() + " VND";
-    }
+public String toString() {
+    return super.toString() 
+           + ", Mon hoc: " + monhoc
+           + ", Cap do: " + capdo
+           + ", Gia ban: " + dinhdangVN(tinhgiaban());
+}
 }
