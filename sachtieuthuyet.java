@@ -1,4 +1,4 @@
-class sachtieuthuyet extends sach {
+public class sachtieuthuyet extends sach {
     private String theloai;
     private boolean lasachseries;
 

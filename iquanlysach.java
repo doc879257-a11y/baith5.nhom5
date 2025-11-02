@@ -1,6 +1,6 @@
 import java.util.List;
 
-interface iquanlysach {
+public interface iquanlysach {
     void themsach(sach s);
     sach timsachtheoma(String ma);
     boolean xoasach(String ma);

@@ -1,3 +1,3 @@
-interface igiaban {
+public interface igiaban {
     double tinhgiaban();
 }

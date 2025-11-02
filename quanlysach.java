@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class quanlysach implements iquanlysach {
+public class quanlysach implements iquanlysach {
     private ArrayList<sach> dssach = new ArrayList<>();
 
     public void themsach(sach s) {

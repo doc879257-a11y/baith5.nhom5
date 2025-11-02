@@ -1,4 +1,4 @@
-abstract class sach implements igiaban, ikiemke {
+public abstract class sach implements igiaban, ikiemke {
     protected String masach;
     protected String tieude;
     protected String tacgia;

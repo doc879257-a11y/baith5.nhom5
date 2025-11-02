@@ -1,4 +1,4 @@
-class sachgiaotrinh extends sach {
+public class sachgiaotrinh extends sach {
     private String monhoc;
     private String capdo;
 
