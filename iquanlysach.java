@@ -2,10 +2,8 @@ import java.util.List;
 
 public interface iquanlysach {
     void themsach(sach s);
-    sach timsachtheoma(String ma);
-    boolean xoasach(String ma);
-    void hiendssach();
-    boolean capnhatsoluong(String ma, int slmoi);
+    boolean xoasach(String masach);
+    sach timkiemsach(String masach);
+    void hienthidanhsach();
     double tonggiabantatca();
-    List<sach> getds();
 }
