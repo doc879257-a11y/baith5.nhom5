@@ -1,12 +1,12 @@
 public abstract class sach implements igiaban, ikiemke {
-    private String masach;
-    private String tieude;
-    private String tacgia;
-    private int namxuatban;
-    private int soluong;
-    private double giacoban;
-    private String vitri;
-
+    protected String masach;
+    protected String tieude;
+    protected String tacgia;
+    protected int namxuatban;
+    protected int soluong;
+    protected double giacoban;
+    protected String vitri;
+    public sach(){}
     public sach(String masach, String tieude, String tacgia, int namxuatban, int soluong, double giacoban,String vitri) {
         this.masach = masach;
         this.tieude = tieude;
@@ -32,7 +32,7 @@ public abstract class sach implements igiaban, ikiemke {
     public void setsoluong(int soluong) { this.soluong = soluong; }
     public void setgiacoban(double giacoban) { this.giacoban = giacoban; }
     public void setvitri(String vitri) { this.vitri = vitri; }
-
+    public abstract double tinhgiaban();
     @Override
     public String toString() {
         return "Mã sách: " + masach + ", Tiêu đề: " + tieude + ", Tác giả: " + tacgia +

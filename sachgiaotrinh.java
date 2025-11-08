@@ -1,7 +1,7 @@
 public class sachgiaotrinh extends sach {
     private String monhoc;
     private String capdo;
-
+    public sachgiaotrinh() {}
     public sachgiaotrinh(String masach, String tieude, String tacgia, int namxuatban,
                          int soluong, double giacoban,String vitri, String monhoc, String capdo) {
         super(masach, tieude, tacgia, namxuatban, soluong, giacoban,vitri);
