@@ -1,7 +1,7 @@
 public class sachtieuthuyet extends sach {
     private String theloai;
     private boolean lasachseries;
-
+    public sachtieuthuyet() {}
     public sachtieuthuyet(String masach, String tieude, String tacgia, int namxuatban,
                           int soluong, double giacoban,String vitri, String theloai, boolean lasachseries) {
         super(masach, tieude, tacgia, namxuatban, soluong, giacoban,vitri);
